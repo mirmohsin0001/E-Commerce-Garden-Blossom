@@ -1,0 +1,84 @@
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 90%;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="email"],
+form input[type="password"] {
+    width: calc(100% - 12px);
+    /* Account for padding and border */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    /* Include padding and border in element's total width and height */
+}
+
+form input:focus {
+    outline: 2px solid #007bff;
+    /* Add a blue outline on focus */
+}
+
+form .error-message {
+    color: red;
+    font-size: 0.875rem;
+    /* Slightly smaller font size for errors */
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+form button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
+    /* Add a subtle blue glow on focus */
+}
+
+form .success-message {
+    color: green;
+    margin-top: 10px;
+}
+
+.error {
+    background-color: #454545;
+}
+
+/* Responsive adjustments (optional) */
+@media (max-width: 500px) {
+    .signup-form {
+        padding: 10px;
+    }
+}
