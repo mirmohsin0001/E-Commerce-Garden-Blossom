@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './SignUp.css';
+import { Link } from 'react-router';
+import Login from '../Login/Login';
 
 
 const SignUp = () => {
@@ -53,17 +55,17 @@ const SignUp = () => {
 
     return (
         <>
-            <div className="signup-container">
+            <div className="container">
 
 
                 <h1>Sign Up</h1>
                 <form className='signup-form' onSubmit={handleSubmit}>
-                <div>
-                    {errors.email && <p >{errors.email}</p>}
-                    {errors.password && <p >{errors.password}</p>}
-                    {submissionMessage && <p >{submissionMessage}</p>}
-                    {errors.confirmPassword && (<p>{errors.confirmPassword}</p>)}
-                </div>
+                    <div>
+                        {errors.email && <p >{errors.email}</p>}
+                        {errors.password && <p >{errors.password}</p>}
+                        {submissionMessage && <p >{submissionMessage}</p>}
+                        {errors.confirmPassword && (<p>{errors.confirmPassword}</p>)}
+                    </div>
 
                     <div>
                         <label className='label' htmlFor="email">Email</label><br />
@@ -85,7 +87,7 @@ const SignUp = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    <div> {/* Optional: Password confirmation */}
+                    <div>
                         <label htmlFor="confirmPassword">Confirm Password</label><br />
                         <input
                             type="password"
@@ -96,6 +98,7 @@ const SignUp = () => {
                         />
                     </div>
                     <button type="submit">Sign Up</button>
+                    <p>Already a user? <Link to="/Login">Login</Link></p>
                 </form>
             </div>
         </>

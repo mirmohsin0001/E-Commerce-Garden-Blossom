@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './Login.css'; // Import your CSS file
+import './Login.css';
+import { Link } from 'react-router';
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -46,9 +47,9 @@ const Login = () => {
 
     return (
         <>
-            <div className="login-container">
+            <div className="container">
                 <h1>Login</h1>
-                <form className="login-form" onSubmit={handleSubmit}>
+                <form className="form" onSubmit={handleSubmit}>
                     {submissionMessage && <p className="success-message">{submissionMessage}</p>}
                     <div>
                         <label htmlFor="email">Email</label>
@@ -73,6 +74,7 @@ const Login = () => {
                         {errors.password && <p className="error-message">{errors.password}</p>}
                     </div>
                     <button type="submit">Login</button>
+                    <p>Not a user? <Link to ="/SignUp">Sign Up</Link> </p>
                 </form>
             </div>
         </>
