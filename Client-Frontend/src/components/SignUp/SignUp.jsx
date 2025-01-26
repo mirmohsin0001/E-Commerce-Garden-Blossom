@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './SignUp.css';
 import { Link } from 'react-router';
-import Login from '../Login/Login';
 
 
 const SignUp = () => {
@@ -33,6 +32,9 @@ const SignUp = () => {
         } else if (formData.password.length < 6) {
             newErrors.password = 'Password must be at least 6 characters';
         }
+        if(!formData.confirmPassword){
+            newErrors.confirmPassword='Confirm Password';
+        }
         if (formData.confirmPassword && formData.password !== formData.confirmPassword) {
             newErrors.confirmPassword = 'Passwords do not match';
         }
@@ -61,10 +63,7 @@ const SignUp = () => {
                 <h1>Sign Up</h1>
                 <form className='signup-form' onSubmit={handleSubmit}>
                     <div>
-                        {errors.email && <p >{errors.email}</p>}
-                        {errors.password && <p >{errors.password}</p>}
-                        {submissionMessage && <p >{submissionMessage}</p>}
-                        {errors.confirmPassword && (<p>{errors.confirmPassword}</p>)}
+                        {submissionMessage && <p className='.success-message' >{submissionMessage}</p>}
                     </div>
 
                     <div>
@@ -76,6 +75,7 @@ const SignUp = () => {
                             value={formData.email}
                             onChange={handleChange}
                         />
+                        {errors.email && <p className="error-message" >{errors.email}</p>}
                     </div>
                     <div>
                         <label htmlFor="password">Password</label><br />
@@ -86,6 +86,7 @@ const SignUp = () => {
                             value={formData.password}
                             onChange={handleChange}
                         />
+                        {errors.password && <p className="error-message">{errors.password}</p>}
                     </div>
                     <div>
                         <label htmlFor="confirmPassword">Confirm Password</label><br />
@@ -96,6 +97,7 @@ const SignUp = () => {
                             value={formData.confirmPassword}
                             onChange={handleChange}
                         />
+                        {errors.confirmPassword && (<p className="error-message" >{errors.confirmPassword}</p>)}
                     </div>
                     <button type="submit">Sign Up</button>
                     <p>Already a user? <Link to="/Login">Login</Link></p>
